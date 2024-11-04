@@ -3,16 +3,22 @@ const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize('amazing_tripApp', 'root', 'root', {
   host: 'db',
-  port: 3306,
-  dialect: 'mysql'
+  dialect: 'mysql',
+  port: 3306
 });
 
-const User = require('../models/User');
+const BlogPost = sequelize.define('BlogPost', {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  summary: {
+    type: Sequelize.TEXT,
+    allowNull: false
+  }
+}, {
+  tableName: 'blog_posts',
+  timestamps: false
+});
 
-sequelize.authenticate()
-  .then(() => console.log('Database connected...'))
-  .catch(err => console.log('Error: ' + err));
-
-User.init(sequelize);
-
-module.exports = sequelize;
+module.exports = { sequelize, BlogPost };
