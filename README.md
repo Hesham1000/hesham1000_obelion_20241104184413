@@ -1,0 +1,1 @@
+amazing trip to turkey blog
