@@ -1,4 +1,3 @@
-javascript
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize('amazing_tripApp', 'root', 'root', {
